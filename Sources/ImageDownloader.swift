@@ -325,6 +325,7 @@ open class ImageDownloader {
         // We need to set the URL as the load key. So before setup progress, we need to ask the `requestModifier` for a final URL.
         var request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: timeout)
         request.httpShouldUsePipelining = requestsUsePipelining
+        request.allHTTPHeaderFields = ["User-Agent":"App/iOS"]
 
         if let modifier = options?.modifier {
             guard let r = modifier.modified(for: request) else {
