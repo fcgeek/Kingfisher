@@ -184,6 +184,7 @@ open class ImageDownloader {
         // Creates default request.
         var request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: downloadTimeout)
         request.httpShouldUsePipelining = requestsUsePipelining
+        request.allHTTPHeaderFields = ["User-Agent":"App/iOS"]
 
         let options = options ?? .empty
 
